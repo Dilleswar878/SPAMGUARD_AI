@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle retro-futurist scanline overlay and chromatic glitch accent (respects reduced motion) */
+@keyframes sg-glitch-shift {
+  0%, 92%, 100% {
+    transform: translate3d(0, 0, 0);
+    text-shadow: none;
+  }
+  94% {
+    transform: translate3d(-1.5px, 0, 0);
+    text-shadow: 2px 0 rgba(34, 211, 238, 0.75), -2px 0 rgba(217, 70, 239, 0.75);
+  }
+  96% {
+    transform: translate3d(1.5px, 0, 0);
+    text-shadow: -2px 0 rgba(34, 211, 238, 0.75), 2px 0 rgba(217, 70, 239, 0.75);
+  }
+  98% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sg-glitch-hover:hover {
+    animation: sg-glitch-shift 1.4s steps(2, end) infinite;
+  }
+}
+
+.sg-scanline-surface {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(34, 211, 238, 0.025) 3px,
+    rgba(34, 211, 238, 0.025) 4px
+  );
+}

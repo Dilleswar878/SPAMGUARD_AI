@@ -1,0 +1,13 @@
+node_modules
+dist
+.env
+backend/.venv
+backend/__pycache__
+backend/**/__pycache__
+backend/instance/*.db
+backend/instance/*.db-wal
+backend/instance/*.db-shm
+backend/models/*.joblib
+backend/models/*.json
+.pytest_cache
+*.log

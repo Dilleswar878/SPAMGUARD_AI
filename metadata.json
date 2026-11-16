@@ -1,0 +1,6 @@
+{
+  "name": "SpamGuard AI",
+  "description": "AI-Based Spam Review Detection System — Detect Fake Reviews. Build Digital Trust.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
